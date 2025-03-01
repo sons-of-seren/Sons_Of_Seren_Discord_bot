@@ -130,7 +130,7 @@ dist
 .pnp.*
 
 # Additional for Discord bot
-.env
+rsndata.json
 
 # Nodemon
 nodemon.json
