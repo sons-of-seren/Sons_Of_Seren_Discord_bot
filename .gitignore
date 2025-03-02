@@ -131,6 +131,3 @@ dist
 
 # Additional for Discord bot
 rsndata.json
-
-# Nodemon
-nodemon.json

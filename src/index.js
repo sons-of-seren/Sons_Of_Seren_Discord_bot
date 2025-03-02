@@ -1,5 +1,7 @@
 require('dotenv').config();
 const { Client, IntentsBitField } = require('discord.js');
+const mysql = require('mysql2');
+const dbConfig = require('./config/dbConfig');
 const client = new Client({
     intents: [
         IntentsBitField.Flags.Guilds,
@@ -9,9 +11,21 @@ const client = new Client({
     ],
 });
 
-// Importeer en gebruik de modules
-require('./modules/PingBot')(client);
-require('./modules/SetRsn')(client);
-require('./modules/LootLogSetup')(client);
+// Maak verbinding met de database
+const connection = mysql.createConnection(dbConfig);
 
-client.login(process.env.TOKEN);
+connection.connect((err) => {
+    if (err) {
+        console.error('Fout bij het verbinden met de database:', err);
+        return;
+    }
+    console.log('Verbonden met de database.');
+});
+
+// Laad de modules in
+require('./modules/botReady')(client);
+require('./modules/pingBot')(client);
+require('./modules/setRsn')(client, connection);
+require('./modules/lootLogSetup')(client, connection);
+
+client.login(process.env.BOTTOKEN);

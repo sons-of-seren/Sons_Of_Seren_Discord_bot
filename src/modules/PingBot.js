@@ -1,6 +1,6 @@
 module.exports = (client) => {
     client.on('messageCreate', (message) => {
-        if (message.content === 'sos bot status') {
+        if (message.content === 'ping bot') {
             message.reply('Ik ben online!');
         }
     });
