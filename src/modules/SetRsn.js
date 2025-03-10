@@ -1,4 +1,5 @@
-const { lootLogChannelId, rsnSetupChannelId } = require('../config/channelIdConfig.json');
+const path = require('path');
+const { lootLogChannelId, rsnSetupChannelId } = require(path.join(__dirname, '..', 'config', 'channelIdConfig'));
 
 module.exports = (client, connection) => {
     client.on('messageCreate', async (message) => {

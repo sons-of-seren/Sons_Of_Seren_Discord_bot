@@ -1,0 +1,10 @@
+{
+    "embeds": [
+        {
+            "title": "TEST EMBED",
+            "description": "Embed used for testing purposes.",
+            "color": 2631720
+        }
+        
+    ]
+}

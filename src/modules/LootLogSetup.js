@@ -1,5 +1,7 @@
+const path = require('path');
 const { ChannelType } = require('discord.js');
-const { lootLogCreateChannelId, lootLogChannelId } = require('../config/channelIdConfig.json');
+const { lootLogCreateChannelId, lootLogChannelId } = require(path.join(__dirname, '..', 'config', 'channelIdConfig'));
+
 
 module.exports = (client, connection) => {
     client.on('messageCreate', async (message) => {
